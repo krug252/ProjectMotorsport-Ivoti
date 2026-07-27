@@ -375,7 +375,11 @@ ul {
 
 @media (max-width: 560px) {
   .sobre {
-    min-height: 1650px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    min-height: 100vw;
   }
 }
 
@@ -766,7 +770,7 @@ ul {
 }
 
 .footer-credit-img {
-  height: clamp(24px, 3vw, 36px);
+  height: clamp(40px, 5vw, 64px);
   width: auto;
   object-fit: contain;
   opacity: 0.85;
