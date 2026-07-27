@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Motorsport — Preparação Automotiva em Ivoti-RS</title>
+  <meta name="description"
+    content="Project Motorsport: oficina especializada em preparação, peças e acessórios automotivos em Ivoti-RS. Referência regional desde 2018." />
+  <!-- Google Fonts: Montserrat (títulos) + Inter (corpo) -->
+  <!-- NOTA CSS: Substituir 'Inter' por 'TT Interphases' (fonte licenciada) quando o arquivo for fornecido -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===========================
+       1. HEADER / NAVBAR
+  ============================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Project Motorsport Home">
+        <img src="assets/favicon.png" alt="Project Motorsport Logo" class="nav-logo-img" />
+      </a>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#espaco" class="nav-link">Fotos</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===========================
+       2. HERO
+       Fundo: assets/carros.jpg — vista interna da oficina com carros clássicos
+  ============================ -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="hero-project">PROJECT</span>
+        <span class="hero-motorsport">MOTORSPORT</span>
+      </h1>
+      <a href="#sobre" class="hero-arrow" id="heroArrow" aria-label="Rolar para Sobre">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===========================
+       3. SEÇÃO SOBRE
+       Estilo baseado na referência de oficina mecânica
+  ============================ -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+
+      <!-- Topo: Título principal e Apresentação com Foto -->
+      <div class="sobre-header-grid">
+        <div class="sobre-main-title reveal">
+          <h2 class="sobre-title-large">
+            FIQUE TRANQUILO <br> SOBRE SEU CARRO. <br />NÓS CUIDAMOS DELE!
+          </h2>
+          <p class="sobre-subtitle">
+            A <strong>Project Motorsport</strong> nasceu em Ivoti-RS em 2018, unindo paixão pelo automobilismo, precisão
+            técnica e transparência em cada serviço. Oferecemos preparação de motores, remapeamento eletrônico,
+            manutenção preventiva e acessórios de alta performance.
+          </p>
+        </div>
+        <div class="sobre-team-photo reveal reveal-delay">
+          <img src="assets/sobreimg.png" alt="Equipe Project Motorsport" class="sobre-img lightbox-trigger"
+            data-caption="Equipe Project Motorsport em Ivoti" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Banner de Destaque / Pergunta -->
+      <div class="sobre-banner reveal">
+        <h3 class="sobre-banner-title">
+          Sabe por que a Project Motorsport é referência em Ivoti e região?
+        </h3>
+        <p class="sobre-banner-sub">
+          Atendemos diariamente clientes que buscam pronto atendimento, diagnóstico preciso e soluções em alta
+          performance.
+        </p>
+      </div>
+
+      <!-- Grid de Diferenciais (Estilo Referência) -->
+      <div class="sobre-differentials-grid reveal">
+
+        <div class="differential-item">
+          <div class="differential-icon">📱</div>
+          <div class="differential-info">
+            <h4>Canais de Atendimento</h4>
+            <p>Ligando ou enviando uma mensagem pelo WhatsApp para a nossa oficina, você sempre terá retorno rápido e
+              direto de nossa equipe.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-icon">⏱️</div>
+          <div class="differential-info">
+            <h4>Tempo de Serviço</h4>
+            <p>O carro é essencial no seu dia a dia. Por isso, trabalhamos com agilidade e responsabilidade no
+              cumprimento de prazos.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-icon">💰</div>
+          <div class="differential-info">
+            <h4>Valor Justo</h4>
+            <p>Nossos orçamentos são transparentes e detalhados. Você sabe exatamente pelo que está pagando, sem
+              surpresas na hora da entrega.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-icon">👨‍🔧</div>
+          <div class="differential-info">
+            <h4>Profissionais Qualificados</h4>
+            <p>Nossa equipe conta com mecânicos e preparadores experientes, em constante atualização técnica para cuidar
+              do seu veículo.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-icon">🏎️</div>
+          <div class="differential-info">
+            <h4>Soluções em Performance</h4>
+            <p>Seja para uso diário, track days ou arrancada, desenvolvemos o acerto ideal de motor, câmbio e suspensão
+              para o seu objetivo.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-icon">🛡️</div>
+          <div class="differential-info">
+            <h4>Qualidade &amp; Confiança</h4>
+            <p>Utilizamos peças de marcas consolidadas no mercado automotivo mundial, garantindo segurança e a melhor
+              solução para seu automóvel.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================
+       4. SEÇÃO SERVIÇOS
+       Foto da fachada: assets/1.1.jpg
+  ============================ -->
+  <section class="servicos" id="servicos">
+    <div class="container servicos-grid">
+      <div class="servicos-foto reveal">
+        <img src="assets/1.1.jpg" alt="Fachada da Project Motorsport — carro clássico na frente da loja"
+          class="img-fachada lightbox-trigger" data-caption="Fachada da Project Motorsport" loading="lazy" />
+      </div>
+      <div class="servicos-lista reveal reveal-delay">
+        <h2 class="section-title">SERVIÇOS</h2>
+        <ul class="services-list">
+          <li>Manutenção &amp; Performance</li>
+          <li>Remap Motor &amp; Câmbio</li>
+          <li>ECU's Programáveis</li>
+          <li>Instalação de Peças e Acessórios</li>
+          <li>Alinhamento e Balanceamento</li>
+          <li>Diagnóstico Eletrônico</li>
+          <li>Escapamentos Esportivos</li>
+          <li>Suspensão e Freios</li>
+          <li>Estética e Detalhamento Automotivo</li>
+          <li>Espaço para Eventos e Encontros</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       5. SEÇÃO ESPAÇO
+       Galeria em todo o horizonte da página (layout referência)
+  ============================ -->
+  <section class="espaco" id="espaco">
+    <div class="container">
+      <h2 class="section-title text-center reveal">Projetos</h2>
+    </div>
+    <div class="eg-gallery reveal">
+
+      <!-- Topo: 2 Colunas (Esq: carro3, carro4, carro5 | Dir: carro1, carro2) -->
+      <div class="eg-top">
+
+        <!-- Coluna Esquerda: 3 fotos empilhadas -->
+        <div class="eg-left-col">
+          <div class="eg-item">
+            <img src="assets/carro3.jpg" alt="Dodge Charger em burnout no evento da Project Motorsport"
+              class="lightbox-trigger" data-caption="Dodge Charger em burnout — Evento Project Motorsport"
+              loading="lazy" />
+          </div>
+          <div class="eg-item">
+            <img src="assets/carro4.jpg" alt="Camaro na garagem da Project Motorsport" class="lightbox-trigger"
+              data-caption="Camaro — Garagem Project Motorsport" loading="lazy" />
+          </div>
+          <div class="eg-item">
+            <img src="assets/carro5.jpg" alt="Pickup teal clássica na fachada da Project Motorsport ao pôr-do-sol"
+              class="lightbox-trigger" data-caption="Pickup clássica ao pôr-do-sol — Project Motorsport"
+              loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Coluna Direita: 3 fotos empilhadas -->
+        <div class="eg-right-col">
+          <div class="eg-item">
+            <img src="assets/carro1.jpg" alt="Fachada da Project Motorsport com Dodge Dart amarelo"
+              class="lightbox-trigger" data-caption="Dodge Dart amarelo — Fachada Project Motorsport" loading="lazy" />
+          </div>
+          <div class="eg-item">
+            <img src="assets/carro2.jpg" alt="Hot rod em burnout no evento da Project Motorsport"
+              class="lightbox-trigger" data-caption="Hot rod em burnout — Evento Project Motorsport" loading="lazy" />
+          </div>
+          <div class="eg-item">
+            <img src="assets/carro6.jpg" alt="Projeto especial na Project Motorsport" class="lightbox-trigger"
+              data-caption="Projeto especial — Project Motorsport" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- ===========================
+       7. FOOTER / CONTATO
+       Background: assets/footer.jpg — evento com multidão
+  ============================ -->
+  <footer class="footer" id="contato">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+
+      <!-- Informações do Footer: Horários (Esquerda) + Endereço (Direita) -->
+      <div class="footer-info-grid">
+        <div class="footer-info-col footer-info-left">
+          <p class="footer-info-text">
+            Segunda a Sexta: 08:00 &ndash; 18:00<br />
+            S&aacute;bado: 08:00 &ndash; 12:00
+          </p>
+        </div>
+        <div class="footer-info-col footer-info-right">
+          <p class="footer-info-text">
+            Rua Vale das Palmeiras, 3071<br />
+            Col&ocirc;nia Japonesa, Ivoti &ndash; RS
+          </p>
+        </div>
+      </div>
+
+      <!-- Rodapé: redes + crédito -->
+      <div class="footer-bottom">
+        <div class="footer-social" aria-label="Redes sociais">
+          <!-- NOTA: Substituir os href# pelos links reais das redes sociais -->
+          <a href="#" class="social-link" id="social-instagram" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" id="social-facebook" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" id="social-site" aria-label="Site">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </a>
+        </div>
+        <div class="footer-credit">
+          <img src="assets/Flypi.png" alt="Flypi" class="footer-credit-img" />
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===========================
+       LIGHTBOX MODAL
+  ============================ -->
+  <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true"
+    aria-label="Visualizar imagem ampliada">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Anterior">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Próxima">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
