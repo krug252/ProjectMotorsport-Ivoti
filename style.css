@@ -640,9 +640,9 @@ ul {
   align-items: stretch;
 
   /* Footer — evento burnout com multidão, cortando mais o céu para revelar o público em baixo */
-  background-image: url('assets/footer.jpg');
+  background-image: url('assets/footer1.jpg');
   background-size: cover;
-  background-position: center 38%;
+  background-position: center 100%;
 }
 
 .footer-content {
