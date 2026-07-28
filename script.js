@@ -57,6 +57,7 @@
   hamburger.addEventListener('click', function () {
     const isOpen = navMenu.classList.toggle('open');
     hamburger.classList.toggle('active');
+    navbar.classList.toggle('menu-open');
     hamburger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
@@ -66,6 +67,7 @@
     link.addEventListener('click', function () {
       navMenu.classList.remove('open');
       hamburger.classList.remove('active');
+      navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
@@ -76,6 +78,7 @@
     if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
       navMenu.classList.remove('open');
       hamburger.classList.remove('active');
+      navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
