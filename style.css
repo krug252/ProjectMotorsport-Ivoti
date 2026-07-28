@@ -244,8 +244,9 @@ ul {
 
   /* Hero — vista interna da oficina com carros clássicos */
   background-image: url('assets/hero.jpg');
+  height: 100dvh;
   background-size: cover;
-  background-position: center top;
+  background-position: center 100%;
   background-attachment: fixed;
 }
 
