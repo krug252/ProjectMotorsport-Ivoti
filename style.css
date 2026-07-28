@@ -391,9 +391,9 @@ ul {
   position: relative;
   background-image: url('assets/upview1.jpg');
   background-size: cover;
-  background-position: center 67%;
+  background-position: center 95%;
   background-repeat: no-repeat;
-  min-height: 1300px;
+  min-height: 1200px;
 }
 
 @media (max-width: 900px) {
