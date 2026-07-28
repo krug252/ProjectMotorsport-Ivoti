@@ -13,6 +13,22 @@
 
   function onScroll() {
     const scrollY = window.scrollY;
+    const hero = document.getElementById('home');
+
+    // Header acompanha ao longo da Hero section e desaparece junto com o fim dela no scroll
+    if (navbar && hero && !navbar.classList.contains('menu-open')) {
+      const heroBottom = hero.offsetHeight;
+      const navHeight = navbar.offsetHeight;
+      const threshold = Math.max(0, heroBottom - navHeight);
+
+      if (scrollY <= threshold) {
+        navbar.style.position = 'fixed';
+        navbar.style.top = '0px';
+      } else {
+        navbar.style.position = 'absolute';
+        navbar.style.top = threshold + 'px';
+      }
+    }
 
     // Torna navbar opaca após 60px
     if (scrollY > 60) {
