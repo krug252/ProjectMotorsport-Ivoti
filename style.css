@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'General Sans', system-ui, sans-serif;
+  font-family: 'Space Mono', 'Courier New', monospace;
   color: #1A1A1A;
   background: #fff;
   overflow-x: hidden;
@@ -524,8 +524,8 @@ ul {
 
 .services-list li {
   display: block;
-  font-family: 'Inter', monospace;
-  font-size: clamp(0.95rem, 1.1vw, 1rem);
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: clamp(0.9rem, 1.1vw, 0.98rem);
   font-weight: 400;
   color: var(--black);
   line-height: 1.6;
@@ -746,7 +746,7 @@ ul {
 }
 
 .footer-copy {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', 'Courier New', monospace;
   font-size: clamp(0.72rem, 1.1vw, 0.85rem);
   font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
@@ -777,7 +777,7 @@ ul {
 }
 
 .footer-info-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', 'Courier New', monospace;
   font-size: clamp(0.72rem, min(1.3vw, 2.2vh), 0.88rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
@@ -1117,7 +1117,7 @@ ul {
 
 /* Legenda */
 .lightbox-caption {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', 'Courier New', monospace;
   font-size: 0.82rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.65);
