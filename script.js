@@ -45,6 +45,16 @@
         link.classList.add('active');
       }
     });
+
+    // Exibe/oculta botão voltar ao topo após 350px de rolagem
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+      if (scrollY > 350) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -84,7 +94,34 @@
     }
   });
 
-  /* ── 3. SCROLL SUAVE — âncoras com offset do header ── */
+  /* ── 3. SCROLL SUAVE PREMIUM (Efeito aveludado com easeInOutCubic) ── */
+  function smoothScrollTo(targetY, duration) {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = easeInOutCubic(progress);
+
+      window.scrollTo(0, startY + distance * easeProgress);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       const targetId = anchor.getAttribute('href');
@@ -92,11 +129,65 @@
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-      const offset = navbar.offsetHeight + 8;
-      const top    = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+
+      const targetY = target.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.abs(targetY - window.scrollY);
+      const duration = Math.min(1100, Math.max(700, distance * 0.55));
+
+      smoothScrollTo(targetY, duration);
     });
   });
+
+  /* ── 4. SMOOTH MOUSE WHEEL SCROLL (Inércia suave na roda do mouse) ── */
+  (function initSmoothWheel() {
+    let currentY = window.scrollY;
+    let targetY = window.scrollY;
+    let isRunning = false;
+    const ease = 0.085;
+
+    function lerp(start, end, factor) {
+      return start + (end - start) * factor;
+    }
+
+    function maxScroll() {
+      return document.documentElement.scrollHeight - window.innerHeight;
+    }
+
+    function update() {
+      currentY = lerp(currentY, targetY, ease);
+
+      if (Math.abs(targetY - currentY) < 0.5) {
+        currentY = targetY;
+        window.scrollTo(0, currentY);
+        isRunning = false;
+        return;
+      }
+
+      window.scrollTo(0, currentY);
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (document.body.style.overflow === 'hidden') return;
+
+      e.preventDefault();
+      targetY += e.deltaY * 0.95;
+      targetY = Math.max(0, Math.min(targetY, maxScroll()));
+
+      if (!isRunning) {
+        isRunning = true;
+        currentY = window.scrollY;
+        requestAnimationFrame(update);
+      }
+    }, { passive: false });
+
+    window.addEventListener('scroll', function () {
+      if (!isRunning) {
+        currentY = window.scrollY;
+        targetY = window.scrollY;
+      }
+    }, { passive: true });
+  })();
 
   /* ── 4. REVEAL AO ROLAR (Intersection Observer) ── */
   const revealEls = document.querySelectorAll('.reveal');
