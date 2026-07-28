@@ -11,6 +11,69 @@
   const sections  = document.querySelectorAll('section[id], footer[id]');
   const heroArrow = document.getElementById('heroArrow');
 
+  /* ── VRUMVRUM SCROLL ANIMATION (rAF-optimized) ── */
+  const heroVrum  = document.getElementById('heroVrum');
+  const vrumSection = document.querySelector('.hero-sobre-divider');
+  let vrumSectionTop = 0;
+  let vrumSectionHeight = 0;
+  let vrumViewportW = 0;
+  let vrumCarW = 0;
+  let vrumLastProgress = -1;
+
+  function cacheVrumLayout() {
+    if (!vrumSection) return;
+    vrumSectionTop    = vrumSection.offsetTop;
+    vrumSectionHeight = vrumSection.offsetHeight;
+    vrumViewportW     = window.innerWidth;
+    if (heroVrum) vrumCarW = heroVrum.offsetWidth;
+  }
+
+  // Debounced resize handler (150ms)
+  let vrumResizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(vrumResizeTimer);
+    vrumResizeTimer = setTimeout(cacheVrumLayout, 150);
+  }, { passive: true });
+
+  cacheVrumLayout(); // initial calculation
+
+  function updateVrumPosition() {
+    if (!heroVrum || vrumSectionHeight <= 0) return;
+
+    const scrollY = window.scrollY;
+    let progress;
+    if (scrollY <= vrumSectionTop) {
+      progress = 0;
+    } else if (scrollY >= vrumSectionTop + vrumSectionHeight) {
+      progress = 1;
+    } else {
+      progress = (scrollY - vrumSectionTop) / vrumSectionHeight;
+    }
+
+    // Only update DOM if progress actually changed (avoid redundant paints)
+    if (progress !== vrumLastProgress) {
+      vrumLastProgress = progress;
+      // Start off-screen left (-carWidth) → end off-screen right (+viewportWidth)
+      var totalTravel = vrumViewportW + vrumCarW;
+      var x = -vrumCarW + (progress * totalTravel);
+      heroVrum.style.transform = 'translateX(' + x + 'px)';
+    }
+  }
+
+  // rAF loop — runs only when scroll events are firing
+  let vrumScrollTicking = false;
+  function onVrumScroll() {
+    if (!vrumScrollTicking) {
+      vrumScrollTicking = true;
+      requestAnimationFrame(function () {
+        updateVrumPosition();
+        vrumScrollTicking = false;
+      });
+    }
+  }
+  window.addEventListener('scroll', onVrumScroll, { passive: true });
+  updateVrumPosition(); // initial position
+
   function onScroll() {
     const scrollY = window.scrollY;
     const hero = document.getElementById('home');
