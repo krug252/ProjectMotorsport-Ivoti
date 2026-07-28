@@ -115,10 +115,7 @@
 
   revealEls.forEach(function (el) { revealObserver.observe(el); });
 
-  /* ── 5. ACTIVE NAV LINK STYLE ── */
-  const style = document.createElement('style');
-  style.textContent = '.nav-link.active { color: #2EC4B6; } .nav-link.active::after { width: 100%; }';
-  document.head.appendChild(style);
+  /* ── 5. ACTIVE NAV LINK STYLE (controlado via CSS em style.css) ── */
 
   /* ── 6. LIGHTBOX ── */
   (function () {
