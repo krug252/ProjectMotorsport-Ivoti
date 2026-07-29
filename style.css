@@ -670,7 +670,7 @@ ul {
 }
 
 .eg-bottom .eg-item img {
-  width: 100%;
+  width: auto;
   height: auto;
   display: block;
   object-fit: contain;
