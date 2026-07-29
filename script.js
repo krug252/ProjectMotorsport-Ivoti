@@ -164,13 +164,28 @@
       }
     });
 
-    // Exibe/oculta botão voltar ao topo após 350px de rolagem
+    // Exibe/oculta botão voltar ao topo após 350px de rolagem e transiciona no footer
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (scrollTopBtn) {
       if (scrollY > 350) {
         scrollTopBtn.classList.add('visible');
       } else {
         scrollTopBtn.classList.remove('visible');
+      }
+
+      const footer = document.getElementById('contato');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const winHeight = window.innerHeight;
+
+        if (footerRect.top < winHeight - 60) {
+          scrollTopBtn.classList.add('in-footer');
+          const targetTop = Math.max(28, footerRect.top + 32);
+          scrollTopBtn.style.top = targetTop + 'px';
+        } else {
+          scrollTopBtn.classList.remove('in-footer');
+          scrollTopBtn.style.top = '';
+        }
       }
     }
   }

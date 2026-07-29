@@ -730,13 +730,7 @@ ul {
 
 /* ── Logo "PROJECT MOTORSPORT" no topo do Footer (Desktop) ── */
 .footer-logo-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0;
-  line-height: 1;
-  margin-bottom: auto;
+  display: none;
 }
 
 .footer-project {
@@ -1293,6 +1287,8 @@ ul {
   position: fixed;
   bottom: 28px;
   right: 28px;
+  left: auto;
+  top: auto;
   z-index: 990;
   width: 48px;
   height: 48px;
@@ -1309,7 +1305,7 @@ ul {
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), top 0.35s cubic-bezier(0.25, 1, 0.5, 1), left 0.35s cubic-bezier(0.25, 1, 0.5, 1), right 0.35s cubic-bezier(0.25, 1, 0.5, 1), bottom 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .scroll-top-btn svg {
@@ -1325,9 +1321,21 @@ ul {
   transform: translateY(0);
 }
 
+.scroll-top-btn.in-footer {
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+  z-index: 1001;
+}
+
 .scroll-top-btn:hover {
   background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 80%);
   transform: translateY(-4px);
+}
+
+.scroll-top-btn.in-footer:hover {
+  transform: translateX(-50%) translateY(-4px) !important;
 }
 
 .scroll-top-btn:hover svg {
