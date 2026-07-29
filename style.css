@@ -353,7 +353,7 @@ ul {
 }
 
 .vrum-track-bottom {
-  margin-top: clamp(70px, 8vh, 120px);
+  margin-top: clamp(30px, 4vh, 50px);
 }
 
 .vrum-line {
@@ -381,10 +381,10 @@ ul {
 .hero-sobre-divider {
   position: relative;
   width: 100%;
-  min-height: 90dvh;
   height: auto;
+  min-height: unset;
   background: #ffffff;
-  padding: clamp(40px, 5vh, 70px) 0 clamp(80px, 10vh, 140px);
+  padding: clamp(40px, 5vh, 60px) 0 clamp(20px, 3vh, 40px);
   color: #1A1A1A;
 }
 
@@ -438,7 +438,7 @@ ul {
   background-color: #ffffff;
   /* Imagem quadrada (2048x2048): altura = largura para não cortar */
   height: 100vw;
-  min-height: unset;
+  aspect-ratio: 1 / 1;
 }
 
 /* ============================================================
@@ -776,6 +776,8 @@ ul {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  margin-top: auto;
+  margin-bottom: 2rem;
 }
 
 .footer-info-col {
