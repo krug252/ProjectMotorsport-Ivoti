@@ -654,9 +654,7 @@ ul {
   transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1);
 }
 
-.eg-item:hover img {
-  transform: scale(1.04);
-}
+/* Hover effect removed */
 
 /* Rodapé: Vista Aérea em todo o horizonte da página */
 .eg-bottom {
