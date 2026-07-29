@@ -436,9 +436,9 @@ ul {
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #ffffff;
-  /* Imagem quadrada (2048x2048): altura = largura para não cortar */
-  height: 100vw;
+  width: 100%;
   aspect-ratio: 1 / 1;
+  height: auto;
 }
 
 /* ============================================================
