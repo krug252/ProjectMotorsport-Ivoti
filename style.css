@@ -822,16 +822,16 @@ ul {
 
 @media (max-width: 600px) {
   .footer-content {
-    padding-top: clamp(320px, 42vh, 460px);
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: clamp(240px, 30vh, 340px);
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .footer-info-grid {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 10px;
     width: 100%;
     text-align: center;
     margin-top: 0;
@@ -849,9 +849,10 @@ ul {
 
   .footer-info-text {
     text-align: center;
-    font-size: clamp(0.75rem, 3.8vw, 0.88rem);
-    line-height: 1.7;
+    font-size: clamp(0.95rem, 4.4vw, 1.25rem);
+    line-height: 1.65;
     letter-spacing: 0.1em;
+    font-weight: 700;
   }
 }
 
@@ -988,7 +989,9 @@ ul {
   }
 
   .footer-content {
-    padding-top: clamp(230px, 30vh, 350px);
+    padding-top: clamp(180px, 40vh, 340px);
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .footer-top {
