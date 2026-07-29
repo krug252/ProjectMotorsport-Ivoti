@@ -13,19 +13,23 @@
 
   /* ── VRUMVRUM SCROLL ANIMATION (rAF-optimized) ── */
   const heroVrum  = document.getElementById('heroVrum');
+  const heroVrum2 = document.getElementById('heroVrum2');
   const vrumSection = document.querySelector('.hero-sobre-divider');
   let vrumSectionTop = 0;
   let vrumSectionHeight = 0;
   let vrumViewportW = 0;
   let vrumCarW = 0;
+  let vrumCarW2 = 0;
   let vrumLastProgress = -1;
+  let vrumLastProgress2 = -1;
 
   function cacheVrumLayout() {
     if (!vrumSection) return;
     vrumSectionTop    = vrumSection.offsetTop;
     vrumSectionHeight = vrumSection.offsetHeight;
     vrumViewportW     = window.innerWidth;
-    if (heroVrum) vrumCarW = heroVrum.offsetWidth;
+    if (heroVrum)  vrumCarW  = heroVrum.offsetWidth;
+    if (heroVrum2) vrumCarW2 = heroVrum2.offsetWidth;
   }
 
   // Debounced resize handler (150ms)
@@ -38,25 +42,60 @@
   cacheVrumLayout(); // initial calculation
 
   function updateVrumPosition() {
-    if (!heroVrum || vrumSectionHeight <= 0) return;
+    if (vrumSectionHeight <= 0) return;
 
     const scrollY = window.scrollY;
-    let progress;
-    if (scrollY <= vrumSectionTop) {
-      progress = 0;
-    } else if (scrollY >= vrumSectionTop + vrumSectionHeight) {
-      progress = 1;
-    } else {
-      progress = (scrollY - vrumSectionTop) / vrumSectionHeight;
+    const winH = window.innerHeight;
+
+    // --- CARRO 1: Topo (Esquerda -> Direita) ---
+    const startScroll1 = Math.max(0, vrumSectionTop - (winH * 0.8));
+    const endScroll1   = vrumSectionTop + (winH * 0.15);
+
+    if (heroVrum) {
+      const range1 = endScroll1 - startScroll1;
+      let progress1;
+      if (scrollY <= startScroll1) {
+        progress1 = 0;
+      } else if (scrollY >= endScroll1) {
+        progress1 = 1;
+      } else if (range1 > 0) {
+        progress1 = (scrollY - startScroll1) / range1;
+      } else {
+        progress1 = 0;
+      }
+
+      if (progress1 !== vrumLastProgress) {
+        vrumLastProgress = progress1;
+        var totalTravel1 = vrumViewportW + vrumCarW;
+        var x1 = -vrumCarW + (progress1 * totalTravel1);
+        heroVrum.style.transform = 'translateX(' + x1 + 'px)';
+      }
     }
 
-    // Only update DOM if progress actually changed (avoid redundant paints)
-    if (progress !== vrumLastProgress) {
-      vrumLastProgress = progress;
-      // Start off-screen left (-carWidth) → end off-screen right (+viewportWidth)
-      var totalTravel = vrumViewportW + vrumCarW;
-      var x = -vrumCarW + (progress * totalTravel);
-      heroVrum.style.transform = 'translateX(' + x + 'px)';
+    // --- CARRO 2: Fundo (Direita -> Esquerda) ---
+    // Começa no scroll seguinte ao que o vrumvrum1 termina!
+    if (heroVrum2) {
+      const startScroll2 = endScroll1 + 30;
+      const endScroll2   = Math.max(startScroll2 + 100, vrumSectionTop + vrumSectionHeight - (winH * 0.25));
+      const range2       = endScroll2 - startScroll2;
+
+      let progress2;
+      if (scrollY <= startScroll2) {
+        progress2 = 0;
+      } else if (scrollY >= endScroll2) {
+        progress2 = 1;
+      } else if (range2 > 0) {
+        progress2 = (scrollY - startScroll2) / range2;
+      } else {
+        progress2 = 0;
+      }
+
+      if (progress2 !== vrumLastProgress2) {
+        vrumLastProgress2 = progress2;
+        var totalTravel2 = vrumViewportW + vrumCarW2;
+        var x2 = vrumViewportW - (progress2 * totalTravel2);
+        heroVrum2.style.transform = 'translateX(' + x2 + 'px)';
+      }
     }
   }
 
