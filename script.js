@@ -178,9 +178,9 @@
         const footerRect = footer.getBoundingClientRect();
         const winHeight = window.innerHeight;
 
-        if (footerRect.top < winHeight - 60) {
+        if (footerRect.top < winHeight - 75) {
           scrollTopBtn.classList.add('in-footer');
-          const targetTop = Math.max(28, footerRect.top + 32);
+          const targetTop = Math.max(28, footerRect.top + 75);
           scrollTopBtn.style.top = targetTop + 'px';
         } else {
           scrollTopBtn.classList.remove('in-footer');
