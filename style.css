@@ -384,7 +384,7 @@ ul {
   height: auto;
   min-height: unset;
   background: #ffffff;
-  padding: clamp(40px, 5vh, 60px) 0 clamp(20px, 3vh, 40px);
+  padding: clamp(40px, 5vh, 60px) 0 clamp(100px, 3vh, 40px);
   color: #1A1A1A;
 }
 
@@ -433,7 +433,6 @@ ul {
   position: relative;
   background-image: url('assets/upview1.jpg');
   background-size: contain;
-  background-position: center center;
   background-repeat: no-repeat;
   background-color: #ffffff;
   width: 100%;
