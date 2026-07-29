@@ -158,9 +158,9 @@ ul {
 
 .nav-link {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.85rem, 1.85vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.15rem, 2.3vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
   padding: 6px clamp(4px, 1vw, 12px);
@@ -240,6 +240,12 @@ ul {
   background-size: cover;
   background-position: center 100%;
   background-attachment: fixed;
+}
+
+@media (max-width: 680px) {
+  .hero {
+    background-image: url('assets/heromobile.jpg');
+  }
 }
 
 .hero-content {
