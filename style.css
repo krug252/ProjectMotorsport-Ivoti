@@ -400,7 +400,7 @@ ul {
   height: auto;
   min-height: unset;
   background: #ffffff;
-  padding: clamp(40px, 5vh, 60px) 0 clamp(100px, 3vh, 40px);
+  padding: clamp(40px, 5vh, 60px) 0 clamp(60px, 3vh, 40px);
   color: #1A1A1A;
 }
 
@@ -452,7 +452,7 @@ ul {
   background-repeat: no-repeat;
   background-color: #ffffff;
   width: 100%;
-  aspect-ratio: 1.35 / 1;
+  aspect-ratio: 1.5 / 1;
   height: auto;
 }
 
