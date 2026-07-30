@@ -1,10 +1,27 @@
 /* ============================================================
    PROJECT MOTORSPORT — style.css  v2
    Paleta: #1A1A1A (preto) | #EDEDE4 (bege) | #2EC4B6 (teal) | #fff
-   Fontes: Montserrat (títulos) | Inter (corpo)
-   NOTA: Substituir 'Inter' por 'TT Interphases' (fonte licenciada) quando
-         o arquivo .woff2 for fornecido. Adicionar @font-face no início do CSS.
+   Fontes: Neue Montreal (Light: 300, Regular: 400, Bold: 700)
 ============================================================ */
+
+/* ----- FONT DEFINITION (NEUE MONTREAL) ----- */
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: local('Neue Montreal'), local('PP Neue Montreal'), url('https://fonts.cdnfonts.com/s/100431/ppneuemontreal-book.woff') format('woff');
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: local('Neue Montreal Bold'), local('PP Neue Montreal Bold'), url('https://fonts.cdnfonts.com/s/100431/ppneuemontreal-bold.woff') format('woff');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ----- RESET ----- */
 *,
@@ -22,7 +39,8 @@ html {
 }
 
 body {
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
+  font-weight: 300;
   color: #1A1A1A;
   background: #fff;
   overflow-x: hidden;
@@ -47,6 +65,7 @@ ul {
 
 /* ----- VARIÁVEIS ----- */
 :root {
+  --font-family: 'Neue Montreal', 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --teal: #2EC4B6;
   --black: #1A1A1A;
   --white: #ffffff;
@@ -69,8 +88,8 @@ ul {
 
 /* ----- TITLES ----- */
 .section-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   letter-spacing: 0.04em;
   line-height: 1.1;
@@ -134,32 +153,76 @@ ul {
 .nav-container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 clamp(10px, 3vw, 60px);
+  padding: 0 clamp(20px, 4vw, 60px);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   position: relative;
+  width: 100%;
 }
 
-/* Desktop & Mobile nav — horizontal inline */
+/* Desktop navbar — logo centralizada com grupos nas laterais */
 .nav-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(16px, 3vw, 48px);
 }
 
-.nav-list {
+.nav-group {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(10px, 3.8vw, 84px);
+  gap: clamp(16px, 3.8vw, 72px);
+}
+
+/* Logomarca central na navbar */
+.nav-logo-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0.9;
+  user-select: none;
+  transition: transform 0.25s ease;
+  padding: 0 10px;
+}
+
+.nav-logo-center:hover {
+  transform: scale(1.05);
+}
+
+.nav-logo-project {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.1vw, 2.0rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3.5px #000000;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+  line-height: 0.9;
+}
+
+.nav-logo-motorsport {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(0.52rem, 0.95vw, 0.9rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 2.5px #000000;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+  line-height: 1;
 }
 
 .nav-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-family);
   font-size: clamp(1.15rem, 2.3vw, 2.25rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
@@ -283,8 +346,8 @@ ul {
 }
 
 .hero-project {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(4.2rem, 13.5vw, 10.5rem);
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -296,8 +359,8 @@ ul {
 }
 
 .hero-motorsport {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(1.8rem, 6vw, 4.6rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -412,8 +475,8 @@ ul {
 }
 
 .divider-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   line-height: 1.05;
   letter-spacing: 0.01em;
@@ -422,7 +485,8 @@ ul {
 }
 
 .divider-text-col {
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
+  font-weight: 300;
   font-size: clamp(0.82rem, 1.15vw, 0.92rem);
   line-height: 1.65;
   color: #333333;
@@ -482,9 +546,9 @@ ul {
 }
 
 .placeholder-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 300;
   color: rgba(0, 0, 0, 0.38);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -545,8 +609,8 @@ ul {
 }
 
 .servicos .section-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(2.2rem, 4.5vw, 4rem);
   line-height: 0.98;
   letter-spacing: 0.01em;
@@ -568,9 +632,9 @@ ul {
 
 .services-list li {
   display: block;
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
   font-size: clamp(0.9rem, 1.1vw, 0.98rem);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--black);
   line-height: 1.6;
   padding: 16px 0;
@@ -604,7 +668,7 @@ ul {
 .eg-top {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 12px;
   width: 100%;
 }
@@ -630,8 +694,7 @@ ul {
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
-  flex: 1;
-  display: flex;
+  flex: none;
 }
 
 .eg-item::after {
@@ -650,22 +713,22 @@ ul {
 }
 
 .eg-left-col .eg-item {
-  flex: 1;
+  flex: none;
 }
 
 .eg-right-col .eg-item {
-  flex: 1;
+  flex: none;
 }
 
 .eg-right-col .eg-item:first-child {
-  flex: 1.25;
+  flex: none;
 }
 
 .eg-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
   transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1);
 }
@@ -711,11 +774,9 @@ ul {
 ============================================================ */
 .footer {
   position: relative;
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
   width: 100%;
+  aspect-ratio: 1366 / 522;
+  height: auto;
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -731,10 +792,10 @@ ul {
   z-index: 2;
   width: 100%;
   height: 100%;
-  padding-top: clamp(24px, 4vh, 48px);
+  padding-top: clamp(24px, 4%, 48px);
   padding-left: clamp(24px, 5vw, 64px);
   padding-right: clamp(24px, 5vw, 64px);
-  padding-bottom: clamp(20px, 4vh, 40px);
+  padding-bottom: clamp(16px, 3%, 36px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -747,8 +808,8 @@ ul {
 }
 
 .footer-project {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(3.2rem, 7.5vw, 6.2rem);
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -760,8 +821,8 @@ ul {
 }
 
 .footer-motorsport {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(1.4rem, 3.4vw, 2.7rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -774,9 +835,9 @@ ul {
 }
 
 .footer-copy {
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
   font-size: clamp(0.72rem, 1.1vw, 0.85rem);
-  font-weight: 700;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -807,9 +868,9 @@ ul {
 }
 
 .footer-info-text {
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
   font-size: clamp(0.72rem, min(1.3vw, 2.2vh), 0.88rem);
-  font-weight: 500;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.88);
   line-height: 1.8;
   letter-spacing: 0.12em;
@@ -819,9 +880,10 @@ ul {
 
 @media (max-width: 600px) {
   .footer-content {
-    padding-top: clamp(240px, 30vh, 340px);
+    padding-top: clamp(16px, 3vw, 24px);
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 16px;
   }
 
   .footer-info-grid {
@@ -914,6 +976,61 @@ ul {
 ============================================================ */
 @media (max-width: 900px) {
 
+  /* Navbar e Hambúrguer Mobile */
+  .navbar {
+    top: 0;
+    padding: 14px 0;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(10, 26, 24, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1050;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+  }
+
+  .nav-logo-center {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+
   /* Sobre */
   .sobre-grid {
     grid-template-columns: 1fr;
@@ -949,7 +1066,7 @@ ul {
   }
 
   .footer-content {
-    padding-top: clamp(180px, 40vh, 340px);
+    padding-top: clamp(20px, 4vw, 40px);
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -1005,13 +1122,30 @@ ul {
 ============================================================ */
 @media (max-width: 560px) {
 
-  /* Hero: desativar parallax no mobile (bug iOS Safari com background-attachment:fixed) */
+  /* Hero: exibir imagem de fundo 100% inteira sem cortes na proporção real (3072 / 3022) */
   .hero {
-    background-attachment: scroll;
+    width: 100%;
+    aspect-ratio: 3072 / 3022;
+    height: auto;
+    min-height: unset;
+    background-image: url('assets/heromobile.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #000000;
     background-position: center;
+    background-attachment: scroll;
   }
 
-  /* Espaço mobile — já cai para 1 coluna automaticamente abaixo de 260px */
+  .hero-arrow {
+    width: 52px;
+    height: 52px;
+    bottom: 16px;
+  }
+
+  .hero-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
 
   /* Fachada em mobile */
   .img-fachada {
@@ -1023,9 +1157,10 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  /* Footer mobile: corta bordas laterais, centraliza conteúdo */
+  /* Footer mobile: ajusta altura para comportar o conteúdo empilhado */
   .footer {
-    background-position: center 38%;
+    aspect-ratio: auto;
+    background-position: center 100%;
     background-attachment: scroll;
   }
 
@@ -1048,7 +1183,7 @@ ul {
   }
 
   .footer-content {
-    padding-top: 68px;
+    padding-top: clamp(16px, 3vw, 32px);
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 10px;
@@ -1144,9 +1279,9 @@ ul {
 
 /* Legenda */
 .lightbox-caption {
-  font-family: 'Space Mono', 'Courier New', monospace;
+  font-family: var(--font-family);
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.65);
   letter-spacing: 0.07em;
   text-transform: uppercase;

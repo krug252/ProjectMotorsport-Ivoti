@@ -50,10 +50,9 @@
   <meta name="msapplication-TileColor" content="#000000" />
 
   <!-- ============================================================
-       PRECONNECT: Google Fonts (reduz latência DNS)
+       PRECONNECT: Font CDN (reduz latência DNS)
   ============================================================ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
 
   <!-- ============================================================
        PRELOAD: Recursos críticos acima da dobra
@@ -62,16 +61,12 @@
   <link rel="preload" as="image" href="assets/heromobile.jpg" media="(max-width: 680px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vrumvrum1.png" />
   <link rel="preload" as="image" href="assets/vrumvrum2.png" />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/pp-neue-montreal" />
 
   <!-- ============================================================
-       GOOGLE FONTS
-       NOTA CSS: Substituir 'Inter' por 'TT Interphases' (fonte licenciada) quando o arquivo for fornecido
+       FONTE: NEUE MONTREAL
   ============================================================ -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet" />
 
   <!-- ============================================================
        CSS PRINCIPAL
@@ -145,12 +140,18 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Menu principal">
-        <ul class="nav-list">
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#servicos" class="nav-link">Serviços</a></li>
-          <li><a href="#espaco" class="nav-link">Fotos</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
+        <div class="nav-group nav-group-left">
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#servicos" class="nav-link">Serviços</a>
+        </div>
+        <a href="#home" class="nav-logo-center" aria-label="Project Motorsport - Ir para o topo">
+          <span class="nav-logo-project">PROJECT</span>
+          <span class="nav-logo-motorsport">MOTORSPORT</span>
+        </a>
+        <div class="nav-group nav-group-right">
+          <a href="#espaco" class="nav-link">Fotos</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </div>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
         <span></span>
