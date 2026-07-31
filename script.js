@@ -117,25 +117,12 @@
     const scrollY = window.scrollY;
     const hero = document.getElementById('home');
 
-    // Header inicia a ~38% da altura da Hero (região intermediária) e fixa no topo ao rolar
-    if (navbar && hero && !navbar.classList.contains('menu-open')) {
-      const heroBottom = hero.offsetHeight;
-      const navHeight = navbar.offsetHeight;
-      const startTop = heroBottom * 0.38;
-      const threshold = Math.max(startTop, heroBottom - navHeight);
-
-      if (scrollY < startTop) {
-        navbar.style.position = 'absolute';
-        navbar.style.top = startTop + 'px';
-        navbar.classList.remove('scrolled');
-      } else if (scrollY <= threshold) {
-        navbar.style.position = 'fixed';
-        navbar.style.top = '0px';
+    // Header posicionado no topo da Hero e fixa no topo ao rolar
+    if (navbar && !navbar.classList.contains('menu-open')) {
+      if (scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
-        navbar.style.position = 'absolute';
-        navbar.style.top = threshold + 'px';
-        navbar.classList.add('scrolled');
+        navbar.classList.remove('scrolled');
       }
     }
 
