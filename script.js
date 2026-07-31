@@ -5,6 +5,22 @@
 (function () {
   'use strict';
 
+  /* ── 0. LENIS SMOOTH SCROLL INITIALIZATION ── */
+  const lenis = new Lenis({
+    duration: 1.1,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
   /* ── 1. NAVBAR & HERO SCROLL INTERACTION ── */
   const navbar    = document.getElementById('navbar');
   const navLinks  = document.querySelectorAll('.nav-link');
@@ -116,13 +132,23 @@
   function onScroll() {
     const scrollY = window.scrollY;
     const hero = document.getElementById('home');
+    const heroHeight = hero ? hero.offsetHeight : 600;
 
-    // Header posicionado no topo da Hero e fixa no topo ao rolar
+    // Desktop: esconde o header ao chegar ao fim da Hero Section
     if (navbar && !navbar.classList.contains('menu-open')) {
-      if (scrollY > 50) {
-        navbar.classList.add('scrolled');
+      if (window.innerWidth > 900) {
+        if (scrollY >= heroHeight - 80) {
+          navbar.classList.add('nav-hidden');
+        } else {
+          navbar.classList.remove('nav-hidden');
+        }
       } else {
-        navbar.classList.remove('scrolled');
+        navbar.classList.remove('nav-hidden');
+        if (scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
       }
     }
 
@@ -189,7 +215,13 @@
     hamburger.classList.toggle('active');
     navbar.classList.toggle('menu-open');
     hamburger.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      lenis.stop();
+    } else {
+      document.body.style.overflow = '';
+      lenis.start();
+    }
   });
 
   // Fecha ao clicar em qualquer link do menu
@@ -200,6 +232,7 @@
       navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      lenis.start();
     });
   });
 
@@ -211,37 +244,11 @@
       navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      lenis.start();
     }
   });
 
-  /* ── 3. SCROLL SUAVE PREMIUM (Efeito aveludado com easeInOutCubic) ── */
-  function smoothScrollTo(targetY, duration) {
-    const startY = window.scrollY;
-    const distance = targetY - startY;
-    let startTime = null;
-
-    function easeInOutCubic(t) {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    function step(currentTime) {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = easeInOutCubic(progress);
-
-      window.scrollTo(0, startY + distance * easeProgress);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
+  /* ── 3. SCROLL SUAVE PARA ÂNCORAS VIA LENIS ── */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       const targetId = anchor.getAttribute('href');
@@ -249,65 +256,11 @@
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-
-      const targetY = target.getBoundingClientRect().top + window.scrollY;
-      const distance = Math.abs(targetY - window.scrollY);
-      const duration = Math.min(1100, Math.max(700, distance * 0.55));
-
-      smoothScrollTo(targetY, duration);
+      lenis.scrollTo(target, { duration: 1.1 });
     });
   });
 
-  /* ── 4. SMOOTH MOUSE WHEEL SCROLL (Inércia suave na roda do mouse) ── */
-  (function initSmoothWheel() {
-    let currentY = window.scrollY;
-    let targetY = window.scrollY;
-    let isRunning = false;
-    const ease = 0.085;
 
-    function lerp(start, end, factor) {
-      return start + (end - start) * factor;
-    }
-
-    function maxScroll() {
-      return document.documentElement.scrollHeight - window.innerHeight;
-    }
-
-    function update() {
-      currentY = lerp(currentY, targetY, ease);
-
-      if (Math.abs(targetY - currentY) < 0.5) {
-        currentY = targetY;
-        window.scrollTo(0, currentY);
-        isRunning = false;
-        return;
-      }
-
-      window.scrollTo(0, currentY);
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener('wheel', function (e) {
-      if (document.body.style.overflow === 'hidden') return;
-
-      e.preventDefault();
-      targetY += e.deltaY * 0.95;
-      targetY = Math.max(0, Math.min(targetY, maxScroll()));
-
-      if (!isRunning) {
-        isRunning = true;
-        currentY = window.scrollY;
-        requestAnimationFrame(update);
-      }
-    }, { passive: false });
-
-    window.addEventListener('scroll', function () {
-      if (!isRunning) {
-        currentY = window.scrollY;
-        targetY = window.scrollY;
-      }
-    }, { passive: true });
-  })();
 
   /* ── 4. REVEAL AO ROLAR (Intersection Observer) ── */
   const revealEls = document.querySelectorAll('.reveal');
@@ -349,12 +302,14 @@
       captionEl.textContent = img.dataset.caption || img.alt || '';
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      lenis.stop();
       updateNavButtons();
     }
 
     function closeLightbox() {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      lenis.start();
       // Limpa src após a transição para evitar flash
       setTimeout(function () { imgEl.src = ''; }, 320);
     }
