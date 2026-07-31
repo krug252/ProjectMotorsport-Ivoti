@@ -760,8 +760,6 @@ ul {
   transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Hover effect removed */
-
 /* Rodapé: Vista Aérea em todo o horizonte da página */
 .eg-bottom {
   width: 100%;
@@ -778,6 +776,38 @@ ul {
   height: auto;
   display: block;
   object-fit: contain;
+}
+
+/* ── ESPAÇAMENTO DESKTOP SOMENTE (min-width: 901px) ── */
+@media (min-width: 901px) {
+  .eg-gallery {
+    max-width: 1560px;
+    margin: 2rem auto 0 auto;
+    padding: 0 clamp(16px, 2.2vw, 32px);
+  }
+
+  .eg-top {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: clamp(32px, 3.2vw, 52px);
+    width: 100%;
+  }
+
+  .eg-left-col,
+  .eg-right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(24px, 2.5vw, 40px);
+  }
+
+  /* Alinhamento no topo e no rodapé sem vãos ou desnível nas extremidades */
+  .eg-left-col .eg-item,
+  .eg-right-col .eg-item {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 600px) {
