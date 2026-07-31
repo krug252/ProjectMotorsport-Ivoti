@@ -1122,29 +1122,30 @@ ul {
 ============================================================ */
 @media (max-width: 560px) {
 
-  /* Hero: exibir imagem de fundo 100% inteira sem cortes na proporção real (3072 / 3022) */
+  /* Hero: mais alta no mobile (75% da altura da tela), cobrindo a primeira dobra com cover */
   .hero {
     width: 100%;
-    aspect-ratio: 3072 / 3022;
-    height: auto;
-    min-height: unset;
+    height: 75vh;
+    height: 75dvh;
+    min-height: 480px;
+    aspect-ratio: auto;
     background-image: url('assets/heromobile.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-color: #000000;
-    background-position: center;
+    background-position: center top;
     background-attachment: scroll;
   }
 
   .hero-arrow {
-    width: 52px;
-    height: 52px;
-    bottom: 16px;
+    width: 56px;
+    height: 56px;
+    bottom: 22px;
   }
 
   .hero-arrow svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
   }
 
   /* Fachada em mobile */
