@@ -189,62 +189,13 @@ ul {
   width: 100%;
 }
 
-/* Desktop navbar — logo centralizada com grupos nas laterais */
+/* Desktop navbar — links centralizados */
 .nav-menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  gap: clamp(16px, 3vw, 48px);
-}
-
-.nav-group {
-  display: flex;
-  align-items: center;
   gap: clamp(16px, 3.8vw, 72px);
-}
-
-/* Logomarca central na navbar */
-.nav-logo-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  line-height: 0.9;
-  user-select: none;
-  transition: transform 0.25s ease;
-  padding: 0 10px;
-}
-
-.nav-logo-center:hover {
-  transform: scale(1.05);
-}
-
-.nav-logo-project {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: clamp(1.2rem, 2.1vw, 2.0rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--teal);
-  paint-order: stroke fill;
-  -webkit-text-stroke: 3.5px #000000;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
-  line-height: 0.9;
-}
-
-.nav-logo-motorsport {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: clamp(0.52rem, 0.95vw, 0.9rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--white);
-  text-align: center;
-  paint-order: stroke fill;
-  -webkit-text-stroke: 2.5px #000000;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
-  line-height: 1;
 }
 
 .nav-link {
@@ -1104,17 +1055,6 @@ ul {
 
   .nav-menu.open {
     right: 0;
-  }
-
-  .nav-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.2rem;
-  }
-
-  .nav-logo-center {
-    display: none;
   }
 
   .nav-link {
