@@ -486,17 +486,42 @@ ul {
 }
 
 /* ============================================================
-   SOBRE
+   SOBRE (FOTO)
 ============================================================ */
 .sobre {
   position: relative;
-  background-image: url('assets/upview1.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
+  background-color: var(--beige);
+  padding: 0 0 clamp(32px, 4vw, 64px);
   width: 100%;
-  aspect-ratio: 1.5 / 1;
+  overflow-x: hidden;
+}
+
+.sobre-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 clamp(12px, 2.5vw, 36px);
+  margin: 0 auto;
+}
+
+.sobre-container img {
+  width: 100%;
   height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+@media (min-width: 901px) {
+  .sobre-container {
+    max-width: 1560px;
+    padding: 0 clamp(16px, 2.2vw, 32px);
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-container {
+    padding: 0 8px;
+  }
 }
 
 /* ============================================================
@@ -628,7 +653,7 @@ ul {
 ============================================================ */
 .espaco {
   background: var(--beige);
-  padding: clamp(28px, 3vw, 44px) 0 clamp(32px, 4vw, 64px);
+  padding: clamp(28px, 3vw, 44px) 0 clamp(2px, 2vw, 64px);
   width: 100%;
   overflow-x: hidden;
 }
@@ -665,7 +690,7 @@ ul {
 .eg-item {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0;
   cursor: pointer;
   width: 100%;
   flex: none;
@@ -677,7 +702,7 @@ ul {
   inset: 0;
   background: rgba(8, 22, 20, 0.3);
   opacity: 0;
-  border-radius: 10px;
+  border-radius: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
@@ -703,7 +728,7 @@ ul {
   height: auto;
   display: block;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 0;
   transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1);
 }
 
