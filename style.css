@@ -546,6 +546,8 @@ ul {
   z-index: 1;
   pointer-events: none;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform: translateX(-100%);
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.18));
 }
@@ -770,6 +772,8 @@ ul {
   padding: clamp(28px, 3vw, 44px) 0 clamp(2px, 2vw, 64px);
   width: 100%;
   overflow-x: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 700px;
 }
 
 .eg-gallery {

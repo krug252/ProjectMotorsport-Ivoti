@@ -50,8 +50,9 @@
   <meta name="msapplication-TileColor" content="#000000" />
 
   <!-- ============================================================
-       PRECONNECT: Font CDN (reduz latência DNS)
+       PRECONNECT & DNS-PREFETCH: Font CDN
   ============================================================ -->
+  <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
   <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
 
   <!-- ============================================================
@@ -59,6 +60,8 @@
   ============================================================ -->
   <link rel="preload" as="image" href="assets/hero1.jpg" media="(min-width: 681px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/hero1mobile.jpg" media="(max-width: 680px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero2.jpg" media="(min-width: 681px)" />
+  <link rel="preload" as="image" href="assets/hero2mobile.jpg" media="(max-width: 680px)" />
   <link rel="preload" as="image" href="assets/vrumvrum1.png" />
   <link rel="preload" as="image" href="assets/vrumvrum2.png" />
   <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/pp-neue-montreal" />

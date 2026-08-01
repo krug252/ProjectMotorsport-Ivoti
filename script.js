@@ -22,12 +22,15 @@
   requestAnimationFrame(raf);
 
   /* ── 1. NAVBAR & HERO SCROLL INTERACTION ── */
-  const navbar    = document.getElementById('navbar');
-  const navLinks  = document.querySelectorAll('.nav-link');
-  const sections  = document.querySelectorAll('section[id], footer[id]');
-  const heroArrow = document.getElementById('heroArrow');
+  const navbar       = document.getElementById('navbar');
+  const navLinks     = document.querySelectorAll('.nav-link');
+  const sections     = document.querySelectorAll('section[id], footer[id]');
+  const heroArrow    = document.getElementById('heroArrow');
+  const heroEl       = document.getElementById('home');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const footerEl     = document.getElementById('contato');
 
-  /* ── HERO CAROUSEL AUTOMATIC SLIDER (hero1 -> hero4, 2.5s loop) ── */
+  /* ── HERO CAROUSEL AUTOMATIC SLIDER (hero1 -> hero5, 2.5s loop) ── */
   const heroSlides = document.querySelectorAll('.hero-slide');
   if (heroSlides.length > 0) {
     let currentSlide = 0;
@@ -100,7 +103,6 @@
     }
 
     // --- CARRO 2: Fundo (Direita -> Esquerda) ---
-    // Começa no scroll seguinte ao que o vrumvrum1 termina!
     if (heroVrum2) {
       const startScroll2 = endScroll1 + 30;
       const endScroll2   = Math.max(startScroll2 + 100, vrumSectionTop + vrumSectionHeight - (winH * 0.25));
@@ -140,10 +142,9 @@
   window.addEventListener('scroll', onVrumScroll, { passive: true });
   updateVrumPosition(); // initial position
 
-  function onScroll() {
+  function updateScrollState() {
     const scrollY = window.scrollY;
-    const hero = document.getElementById('home');
-    const heroHeight = hero ? hero.offsetHeight : 600;
+    const heroHeight = heroEl ? heroEl.offsetHeight : 600;
 
     // Desktop: esconde o header ao chegar ao fim da Hero Section
     if (navbar && !navbar.classList.contains('menu-open')) {
@@ -182,14 +183,15 @@
     });
 
     navLinks.forEach(function (link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + currentId) {
+      const href = link.getAttribute('href');
+      if (href === '#' + currentId) {
         link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
 
     // Exibe/oculta botão voltar ao topo após 350px de rolagem e transiciona no footer
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (scrollTopBtn) {
       if (scrollY > 350) {
         scrollTopBtn.classList.add('visible');
@@ -197,9 +199,8 @@
         scrollTopBtn.classList.remove('visible');
       }
 
-      const footer = document.getElementById('contato');
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect();
+      if (footerEl) {
+        const footerRect = footerEl.getBoundingClientRect();
         const winHeight = window.innerHeight;
 
         if (footerRect.top < winHeight - 90) {
@@ -214,8 +215,19 @@
     }
   }
 
+  let scrollTicking = false;
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        updateScrollState();
+        scrollTicking = false;
+      });
+    }
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run on load
+  updateScrollState(); // run on load
 
   /* ── 2. MENU HAMBÚRGUER ── */
   const hamburger = document.getElementById('hamburger');
