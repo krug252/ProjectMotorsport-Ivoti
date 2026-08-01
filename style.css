@@ -38,7 +38,8 @@ html {
 }
 
 /* ----- LENIS SMOOTH SCROLL STYLES ----- */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -329,7 +330,7 @@ ul {
   height: 100dvh;
   background-size: cover;
   background-position: center 100%;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 @media (max-width: 680px) {
