@@ -361,19 +361,47 @@ ul {
 }
 
 /* Imagens do Carrossel Hero — Desktop */
-.hero-slide:nth-child(1) { background-image: url('assets/hero1.jpg'); }
-.hero-slide:nth-child(2) { background-image: url('assets/hero2.jpg'); }
-.hero-slide:nth-child(3) { background-image: url('assets/hero3.jpg'); }
-.hero-slide:nth-child(4) { background-image: url('assets/hero4.jpg'); }
-.hero-slide:nth-child(5) { background-image: url('assets/hero5.jpg'); }
+.hero-slide:nth-child(1) {
+  background-image: url('assets/hero1.jpg');
+}
+
+.hero-slide:nth-child(2) {
+  background-image: url('assets/hero2.jpg');
+}
+
+.hero-slide:nth-child(3) {
+  background-image: url('assets/hero3.jpg');
+}
+
+.hero-slide:nth-child(4) {
+  background-image: url('assets/hero4.jpg');
+}
+
+.hero-slide:nth-child(5) {
+  background-image: url('assets/hero5.jpg');
+}
 
 /* Imagens do Carrossel Hero — Mobile */
 @media (max-width: 680px) {
-  .hero-slide:nth-child(1) { background-image: url('assets/hero1mobile.jpg'); }
-  .hero-slide:nth-child(2) { background-image: url('assets/hero2mobile.jpg'); }
-  .hero-slide:nth-child(3) { background-image: url('assets/hero3mobile.jpg'); }
-  .hero-slide:nth-child(4) { background-image: url('assets/hero4mobile.jpg'); }
-  .hero-slide:nth-child(5) { background-image: url('assets/hero5mobile.jpg'); }
+  .hero-slide:nth-child(1) {
+    background-image: url('assets/hero1mobile.jpg');
+  }
+
+  .hero-slide:nth-child(2) {
+    background-image: url('assets/hero2mobile.jpg');
+  }
+
+  .hero-slide:nth-child(3) {
+    background-image: url('assets/hero3mobile.jpg');
+  }
+
+  .hero-slide:nth-child(4) {
+    background-image: url('assets/hero4mobile.jpg');
+  }
+
+  .hero-slide:nth-child(5) {
+    background-image: url('assets/hero5mobile.jpg');
+  }
 }
 
 .hero-content {
@@ -1132,7 +1160,7 @@ ul {
   /* Navbar e Hambúrguer Mobile */
   .navbar {
     top: 0;
-    padding: 14px 0;
+    padding: 22px 0;
   }
 
   .nav-container {
