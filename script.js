@@ -27,6 +27,17 @@
   const sections  = document.querySelectorAll('section[id], footer[id]');
   const heroArrow = document.getElementById('heroArrow');
 
+  /* ── HERO CAROUSEL AUTOMATIC SLIDER (hero1 -> hero4, 2.5s loop) ── */
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length > 0) {
+    let currentSlide = 0;
+    setInterval(() => {
+      heroSlides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('active');
+    }, 2500);
+  }
+
   /* ── VRUMVRUM SCROLL ANIMATION (rAF-optimized) ── */
   const heroVrum  = document.getElementById('heroVrum');
   const heroVrum2 = document.getElementById('heroVrum2');

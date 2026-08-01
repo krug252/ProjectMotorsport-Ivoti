@@ -57,8 +57,10 @@
   <!-- ============================================================
        PRELOAD: Recursos críticos acima da dobra
   ============================================================ -->
-  <link rel="preload" as="image" href="assets/hero.jpg" media="(min-width: 681px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/heromobile.jpg" media="(max-width: 680px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero2.jpg" />
+  <link rel="preload" as="image" href="assets/hero3.jpg" />
+  <link rel="preload" as="image" href="assets/hero4.jpg" />
   <link rel="preload" as="image" href="assets/vrumvrum1.png" />
   <link rel="preload" as="image" href="assets/vrumvrum2.png" />
   <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/pp-neue-montreal" />
@@ -142,10 +144,18 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Menu principal">
-        <a href="#sobre" class="nav-link">Sobre</a>
-        <a href="#servicos" class="nav-link">Serviços</a>
-        <a href="#espaco" class="nav-link">Fotos</a>
-        <a href="#contato" class="nav-link">Contato</a>
+        <div class="nav-group nav-group-left">
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#servicos" class="nav-link">Serviços</a>
+        </div>
+        <a href="#home" class="nav-logo-center" aria-label="Project Motorsport - Ir para o topo">
+          <span class="nav-logo-project">PROJECT</span>
+          <span class="nav-logo-motorsport">MOTORSPORT</span>
+        </a>
+        <div class="nav-group nav-group-right">
+          <a href="#espaco" class="nav-link">Fotos</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </div>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
         <span></span>
@@ -156,10 +166,15 @@
   </header>
 
   <!-- ===========================
-       2. HERO
-       Fundo: assets/hero.jpg — vista interna da oficina com carros clássicos
+       2. HERO — CARROSSEL (hero1, hero2, hero3, hero4)
   ============================ -->
   <section class="hero" id="home" aria-label="Project Motorsport — Preparação e Performance Automotiva em Ivoti-RS">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image: url('assets/hero1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/hero2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/hero3.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/hero4.jpg');"></div>
+    </div>
     <div class="hero-overlay"></div>
     <a href="#sobre" class="hero-arrow" id="heroArrow" aria-label="Rolar para a seção Sobre">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
