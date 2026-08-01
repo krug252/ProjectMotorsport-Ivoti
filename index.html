@@ -57,10 +57,8 @@
   <!-- ============================================================
        PRELOAD: Recursos críticos acima da dobra
   ============================================================ -->
-  <link rel="preload" as="image" href="assets/hero1.jpg" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/hero2.jpg" />
-  <link rel="preload" as="image" href="assets/hero3.jpg" />
-  <link rel="preload" as="image" href="assets/hero4.jpg" />
+  <link rel="preload" as="image" href="assets/hero1.jpg" media="(min-width: 681px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero1mobile.jpg" media="(max-width: 680px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vrumvrum1.png" />
   <link rel="preload" as="image" href="assets/vrumvrum2.png" />
   <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/pp-neue-montreal" />
@@ -166,14 +164,15 @@
   </header>
 
   <!-- ===========================
-       2. HERO — CARROSSEL (hero1, hero2, hero3, hero4)
+       2. HERO — CARROSSEL (5 fotos: hero1-5 em desktop e hero1mobile-5mobile em mobile)
   ============================ -->
   <section class="hero" id="home" aria-label="Project Motorsport — Preparação e Performance Automotiva em Ivoti-RS">
     <div class="hero-slides" id="heroSlides">
-      <div class="hero-slide active" style="background-image: url('assets/hero1.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('assets/hero2.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('assets/hero3.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('assets/hero4.jpg');"></div>
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
     </div>
     <div class="hero-overlay"></div>
     <a href="#sobre" class="hero-arrow" id="heroArrow" aria-label="Rolar para a seção Sobre">
