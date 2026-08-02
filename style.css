@@ -208,48 +208,33 @@ ul {
   gap: clamp(24px, 3.5vw, 56px);
 }
 
-/* Logomarca central discreta */
+/* Logomarca central (ícone favicon) */
 .nav-logo-center {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   line-height: 1;
   user-select: none;
   opacity: 0.92;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   padding: 0 10px;
+  height: 36px;
+  overflow: visible;
 }
 
 .nav-logo-center:hover {
   opacity: 1;
-  transform: none;
+  transform: scale(1.06);
 }
 
-.nav-logo-project {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--teal);
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-  line-height: 1;
-}
-
-.nav-logo-motorsport {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: clamp(0.48rem, 0.65vw, 0.62rem);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
-  text-align: center;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-  line-height: 1;
-  margin-top: 2px;
+.nav-logo-img {
+  height: clamp(42px, 3.5vw, 54px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.9);
+  transform-origin: center;
 }
 
 .nav-link {
