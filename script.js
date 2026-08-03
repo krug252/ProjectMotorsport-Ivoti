@@ -77,6 +77,8 @@
     const scrollY = window.scrollY;
     const winH = window.innerHeight;
 
+    const isMobile = vrumViewportW <= 900;
+
     // --- CARRO 1: Topo (Esquerda -> Direita) ---
     const startScroll1 = Math.max(0, vrumSectionTop - (winH * 0.8));
     const endScroll1   = vrumSectionTop + (winH * 0.15);
@@ -96,8 +98,9 @@
 
       if (progress1 !== vrumLastProgress) {
         vrumLastProgress = progress1;
-        var totalTravel1 = vrumViewportW + vrumCarW;
-        var x1 = -vrumCarW + (progress1 * totalTravel1);
+        var startX1 = isMobile ? 12 : -vrumCarW;
+        var totalTravel1 = vrumViewportW + vrumCarW - startX1;
+        var x1 = startX1 + (progress1 * totalTravel1);
         heroVrum.style.transform = 'translateX(' + x1 + 'px)';
       }
     }
@@ -121,8 +124,9 @@
 
       if (progress2 !== vrumLastProgress2) {
         vrumLastProgress2 = progress2;
-        var totalTravel2 = vrumViewportW + vrumCarW2;
-        var x2 = vrumViewportW - (progress2 * totalTravel2);
+        var startX2 = isMobile ? Math.max(0, vrumViewportW - vrumCarW2 - 12) : vrumViewportW;
+        var totalTravel2 = isMobile ? (startX2 + vrumCarW2) : (vrumViewportW + vrumCarW2);
+        var x2 = isMobile ? (startX2 - (progress2 * totalTravel2)) : (vrumViewportW - (progress2 * totalTravel2));
         heroVrum2.style.transform = 'translateX(' + x2 + 'px)';
       }
     }

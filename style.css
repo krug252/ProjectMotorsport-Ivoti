@@ -1146,6 +1146,17 @@ ul {
 ============================================================ */
 @media (max-width: 900px) {
 
+  /* Elementos visíveis no mobile imediatamente ao carregar, sem efeito de load no scroll */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .vrum-car {
+    transform: translateX(12px);
+  }
+
   /* Navbar e Hambúrguer Mobile */
   .navbar {
     top: 0;
