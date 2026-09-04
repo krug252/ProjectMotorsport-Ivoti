@@ -506,11 +506,11 @@ ul {
 }
 
 .vrum-track-top {
-  margin-bottom: clamp(70px, 8vh, 120px);
+  margin-bottom: clamp(110px, 14vh, 200px);
 }
 
 .vrum-track-bottom {
-  margin-top: clamp(30px, 4vh, 50px);
+  margin-top: clamp(70px, 10vh, 140px);
 }
 
 .vrum-line {
@@ -547,28 +547,42 @@ ul {
   color: #1A1A1A;
 }
 
+/* Grid base da seção Sobre */
 .divider-container {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: clamp(40px, 5vw, 90px);
   align-items: start;
 }
 
+/* Sobrescreve .container apenas dentro da seção Sobre, expandindo para quase toda a largura */
+.hero-sobre-divider .divider-container {
+  max-width: min(1700px, 96vw);
+  padding: 0 clamp(12px, 1.5vw, 28px);
+  gap: clamp(32px, 4vw, 72px);
+}
+
+.divider-title-col {
+  min-width: 0;
+  overflow: hidden;
+}
+
 .divider-title {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
-  line-height: 1.05;
-  letter-spacing: 0.01em;
+  font-family: 'Barlow Condensed', 'Neue Montreal', Impact, sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 5.8vw, 6.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #000000;
+  text-align: left;
+  word-break: break-word;
 }
 
 .divider-text-col {
   font-family: var(--font-family);
   font-weight: 300;
-  font-size: clamp(0.82rem, 1.15vw, 0.92rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  line-height: 1.7;
   color: #333333;
   display: flex;
   flex-direction: column;
@@ -580,9 +594,18 @@ ul {
 }
 
 @media (max-width: 900px) {
-  .divider-container {
+  .divider-container,
+  .hero-sobre-divider .divider-container {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+    max-width: 100%;
+    padding: 0 clamp(16px, 4vw, 32px);
+  }
+  .divider-title {
+    font-size: clamp(2.4rem, 8vw, 4.5rem);
+  }
+  .divider-text-col {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   }
 }
 
