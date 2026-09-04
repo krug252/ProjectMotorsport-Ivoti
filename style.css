@@ -716,13 +716,13 @@ ul {
 
 @media (min-width: 901px) {
   .servicos .container {
-    max-width: 1440px;
-    padding-left: 24px;
+    max-width: min(1700px, 96vw);
+    padding: 0 clamp(12px, 1.5vw, 28px);
   }
 
   .servicos-grid {
     grid-template-columns: 1.1fr 1fr;
-    gap: clamp(32px, 5vw, 64px);
+    gap: clamp(32px, 4vw, 72px);
     align-items: start;
   }
 
@@ -739,14 +739,14 @@ ul {
 .servicos .section-title {
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  line-height: 0.98;
+  font-size: clamp(2.8rem, 5.4vw, 6.2rem);
+  line-height: 0.95;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--black);
   text-shadow: none;
   -webkit-text-stroke: 0;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .services-list {
@@ -761,11 +761,11 @@ ul {
 .services-list li {
   display: block;
   font-family: var(--font-family);
-  font-size: clamp(0.9rem, 1.1vw, 0.98rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
   font-weight: 300;
   color: var(--black);
   line-height: 1.6;
-  padding: 16px 0;
+  padding: clamp(18px, 2vh, 28px) 0;
   background: transparent;
   border-radius: 0;
   border: none;
