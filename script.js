@@ -302,7 +302,10 @@
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { duration: 1.1 });
+      const offset = targetId === '#loja'
+        ? parseFloat(getComputedStyle(target).paddingTop) * 0.6
+        : 0;
+      lenis.scrollTo(target, { duration: 1.1, offset });
     });
   });
 
