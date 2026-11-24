@@ -598,7 +598,7 @@ ul {
 
 @media (min-width: 901px) {
   .sobre-container {
-    max-width: 1840px;
+    max-width: 1560px;
     padding: 0 clamp(16px, 2.2vw, 32px);
   }
 }
@@ -891,7 +891,7 @@ ul {
 /* ── ESPAÇAMENTO DESKTOP SOMENTE (min-width: 901px) ── */
 @media (min-width: 901px) {
   .eg-gallery {
-    max-width: 1560px;
+    max-width: 1840px;
     margin: 2rem auto 0 auto;
     padding: 0 clamp(16px, 2.2vw, 32px);
   }
