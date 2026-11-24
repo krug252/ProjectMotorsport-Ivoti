@@ -32,13 +32,32 @@
 
   /* ── HERO CAROUSEL AUTOMATIC SLIDER (hero1 -> hero5, 2.5s loop) ── */
   const heroSlides = document.querySelectorAll('.hero-slide');
-  if (heroSlides.length > 0) {
+  if (heroSlides.length > 1) {
     let currentSlide = 0;
-    setInterval(() => {
-      heroSlides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % heroSlides.length;
-      heroSlides[currentSlide].classList.add('active');
-    }, 2500);
+    let nextSlide = 1;
+
+    async function advanceCarousel() {
+      const slide = heroSlides[nextSlide];
+      const template = slide.querySelector('template');
+      if (template) template.replaceWith(template.content.cloneNode(true));
+
+      const image = slide.querySelector('img');
+      const delay = new Promise(resolve => setTimeout(resolve, 2500));
+      try {
+        await image.decode();
+        await delay;
+        heroSlides[currentSlide].classList.remove('active');
+        slide.classList.add('active');
+        currentSlide = nextSlide;
+      } catch {
+        // Keep the current photo visible if the next one fails to load.
+        await delay;
+      }
+      nextSlide = (nextSlide + 1) % heroSlides.length;
+      advanceCarousel();
+    }
+
+    heroSlides[0].querySelector('img').decode().then(advanceCarousel, advanceCarousel);
   }
 
   /* ── VRUMVRUM SCROLL ANIMATION (rAF-optimized) ── */

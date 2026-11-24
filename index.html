@@ -60,10 +60,6 @@
   ============================================================ -->
   <link rel="preload" as="image" href="assets/hero1.jpg" media="(min-width: 681px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/hero1mobile.jpg" media="(max-width: 680px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/hero2.jpg" media="(min-width: 681px)" />
-  <link rel="preload" as="image" href="assets/hero2mobile.jpg" media="(max-width: 680px)" />
-  <link rel="preload" as="image" href="assets/vrumvrum1.png" />
-  <link rel="preload" as="image" href="assets/vrumvrum2.png" />
   <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/pp-neue-montreal" />
 
   <!-- ============================================================
@@ -171,11 +167,11 @@
   ============================ -->
   <section class="hero" id="home" aria-label="Project Motorsport — Preparação e Performance Automotiva em Ivoti-RS">
     <div class="hero-slides" id="heroSlides">
-      <div class="hero-slide active"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
+      <div class="hero-slide active"><picture><source media="(max-width: 680px)" srcset="assets/hero1mobile.jpg" /><img src="assets/hero1.jpg" alt="" decoding="async" fetchpriority="high" /></picture></div>
+      <div class="hero-slide"><template><picture><source media="(max-width: 680px)" srcset="assets/hero2mobile.jpg" /><img src="assets/hero2.jpg" alt="" decoding="async" /></picture></template></div>
+      <div class="hero-slide"><template><picture><source media="(max-width: 680px)" srcset="assets/hero3mobile.jpg" /><img src="assets/hero3.jpg" alt="" decoding="async" /></picture></template></div>
+      <div class="hero-slide"><template><picture><source media="(max-width: 680px)" srcset="assets/hero4mobile.jpg" /><img src="assets/hero4.jpg" alt="" decoding="async" /></picture></template></div>
+      <div class="hero-slide"><template><picture><source media="(max-width: 680px)" srcset="assets/hero5mobile.jpg" /><img src="assets/hero5.jpg" alt="" decoding="async" /></picture></template></div>
     </div>
     <div class="hero-overlay"></div>
     <a href="#sobre" class="hero-arrow" id="heroArrow" aria-label="Rolar para a seção Sobre">
@@ -193,8 +189,8 @@
     <!-- Top Track line + animated car (vrumvrum1: esquerda para direita) -->
     <div class="vrum-track vrum-track-top" aria-hidden="true">
       <div class="vrum-line"></div>
-      <img src="assets/vrumvrum1.png" alt="" id="heroVrum" class="vrum-car" width="440" height="248" loading="eager"
-        decoding="sync" />
+      <img src="assets/vrumvrum1.png" alt="" id="heroVrum" class="vrum-car" width="440" height="248" loading="lazy"
+        decoding="async" />
     </div>
     <div class="divider-container container">
       <div class="divider-title-col reveal">
@@ -225,7 +221,7 @@
     <div class="vrum-track vrum-track-bottom" aria-hidden="true">
       <div class="vrum-line"></div>
       <img src="assets/vrumvrum2.png" alt="" id="heroVrum2" class="vrum-car vrum-car-bottom" width="440" height="248"
-        loading="eager" decoding="sync" />
+        loading="lazy" decoding="async" />
     </div>
   </section>
 
