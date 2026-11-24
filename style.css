@@ -598,7 +598,7 @@ ul {
 
 @media (min-width: 901px) {
   .sobre-container {
-    max-width: 1560px;
+    max-width: 1840px;
     padding: 0 clamp(16px, 2.2vw, 32px);
   }
 }
